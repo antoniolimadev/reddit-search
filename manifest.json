@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+
+  "name": "Reddit Search",
+  "description": "Search anything on Reddit with a click.",
+  "version": "0.1",
+
+  "background": {
+      "page": "background.html"
+    },
+
+  "options_page": "settings.html",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "http://*/*",
+    "https://*/*",
+    "contextMenus"
+  ]
+}
