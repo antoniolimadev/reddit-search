@@ -1,46 +1,64 @@
 <!DOCTYPE html>
 <html>
-<head><title>Reddit Search Settings</title></head>
+<head>
+	<title>Reddit Search Settings</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
 <body>
 
-Sort by:
-<div>
-	<select id="sortedBy">
-		<option value="relevance" selected>relevance</option>
-		<option value="top">top</option>
-		<option value="new">new</option>
-		<option value="comments">comments</option>
-	</select>
-</div>
 
-Links from:
-<div>
-	<select>
-		<option value="hour">past hour</option>
-		<option value="day">past 24 hours</option>
-		<option value="week">past week</option>
-		<option value="month">past month</option>
-		<option value="year">past year</option>
-		<option value="alltime" selected>all time</option>
-	</select>
-</div>
+<div id="content">
+	<div id="banner">
+		Settings - Reddit Search v1.0b
+	</div>
 
-<div>
-	<label>
-	<input type="checkbox" id="nsfw">
-	NSFW
-	</label>
-</div>
+	<div id="options">
+		Sort by:
+		<div class="section">
+			<select id="sortedBy">
+				<option value="relevance" selected>relevance</option>
+				<option value="top">top</option>
+				<option value="new">new</option>
+				<option value="comments">comments</option>
+			</select>
+		</div>
 
-<div>
-	<label>
-	<input type="checkbox" id="newtab">
-	Stay on current page
-	</label>
-</div>
+		Links from:
+		<div class="section">
+			<select>
+				<option value="hour">past hour</option>
+				<option value="day">past 24 hours</option>
+				<option value="week">past week</option>
+				<option value="month">past month</option>
+				<option value="year">past year</option>
+				<option value="alltime" selected>all time</option>
+			</select>
+		</div>
 
-<div id="status"></div>
-<button id="save">Save</button>
+		<div class="section">
+			<label>
+			<input type="checkbox" id="nsfw">
+			Include NSFW
+			</label>
+		</div>
+
+		<div class="section">
+			<label>
+			<input type="checkbox" id="newtab">
+			Stay on current page
+			</label>
+		</div>
+
+		<div class="section">
+			<button id="save">Save</button>
+			<span class="section" id="status"></span>
+		</div>
+	</div>
+
+	<div id="footer">
+		developed by <a href="http://twitter.com/antoniolclima">@antoniolclima</a>
+	</div>
+</div>
 
 <script src="settings.js"></script>
 </body>
