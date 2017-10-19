@@ -1,8 +1,11 @@
 function searchQuery(info, tab){
 
 	var searchOptions = {
-        sort: "",
-        nsfw: false
+        
+        sort: "1",
+        links: "6",
+        nsfw: false,
+        newtab: false
     }
     var terms = info.selectionText;
 
@@ -12,28 +15,21 @@ function searchQuery(info, tab){
 		return false;
 
 	chrome.storage.sync.get({
-		sortedByOption: 'relevance',
-		nsfw: true
+		
+		sortedByOption: "1",
+		linksFromOption: "6",
+		nsfwOption: false,
+		sametabOption: false
+
 	}, function(items) {
 		
 		searchOptions.sort = items.sortedByOption;
-		searchOptions.nsfw = items.nsfw;
-		
+		searchOptions.links = items.linksFromOption;
+		searchOptions.nsfw = items.nsfwOption;
+		searchOptions.newtab = items.sametabOption;
+
 		makeQuery(terms, searchOptions);
 	});
-
-	//if( terms.length < 1 )
-	//	return false;
-
-	/*if (searchOptions.nsfw == true) {
-
-		console.log(searchOptions.nsfw);
-		optionsQuery = nsfwOn;
-	}
-
- 	chrome.tabs.create({ "url":"http://www.reddit.com/search?q=" + encodeURIComponent(terms) + optionsQuery,
- 		 				 "selected":true
-	});*/
 }
 
 function makeQuery(terms, searchOptions){
@@ -41,13 +37,65 @@ function makeQuery(terms, searchOptions){
 	var optionsQuery = "";
 	var nsfwOn = "&restrict_sr=&include_over_18=on";
 
-	if (searchOptions.nsfw == true) {
+	//sort type
+	var sortByRelevance = "&sort=relevance";
+	var sortByTop = "&sort=top";
+	var sortByNew = "&sort=new";
+	var sortByComments = "&sort=comments";
 
-		optionsQuery = nsfwOn;
+	var linksFromHour = "&t=hour";
+	var linksFromDay = "&t=day";
+	var linksFromWeek = "&t=week";
+	var linksFromMonth = "&t=month";
+	var linksFromYear = "&t=year";
+	var linksFromAll = "&t=all";
+
+	if (searchOptions.nsfw == true) {
+		optionsQuery += nsfwOn;
+	}
+
+	switch(searchOptions.sort){
+
+		case "1":
+			optionsQuery += sortByRelevance;
+			break;
+		case "2":
+			optionsQuery += sortByTop;
+			break;
+		case "3":
+			optionsQuery += sortByNew;
+			break;
+		case "4":
+			optionsQuery += sortByComments;
+			break;
+		default:
+			optionsQuery += "";
+	}
+
+	switch(searchOptions.links){
+
+		case "1":
+			optionsQuery += linksFromHour;
+			break;
+		case "2":
+			optionsQuery += linksFromDay;
+			break;
+		case "3":
+			optionsQuery += linksFromWeek;
+			break;
+		case "4":
+			optionsQuery += linksFromMonth;
+			break;
+		case "5":
+			optionsQuery += linksFromYear;
+			break;
+		case "6":
+			optionsQuery += linksFromAll;
+			break;
 	}
 
  	chrome.tabs.create({ "url":"http://www.reddit.com/search?q=" + encodeURIComponent(terms) + optionsQuery,
- 		 				 "selected":true
+ 		 				 "selected":!searchOptions.newtab
 	});
 }
 

@@ -3,7 +3,7 @@
 
   "name": "Reddit Search",
   "description": "Search anything on Reddit with a click.",
-  "version": "0.1",
+  "version": "1.0",
 
   "background": {
       "page": "background.html"
