@@ -99,5 +99,7 @@ function makeQuery(terms, searchOptions){
 	});
 }
 
-var menuOption = "Search on Reddit";
-var id = chrome.contextMenus.create({"title": menuOption, "contexts":["selection"], "onclick": searchQuery});
+function customsearch(searchquery, searchsite, searchsubreddit){
+
+	
+}

@@ -1,4 +1,4 @@
-var domain = "";
+//var domain = "";
 
 function fill_info(){
 
@@ -7,7 +7,7 @@ function fill_info(){
 	    //get the current url, extract the domain and put it on the 'searchsite' box
 
 	    var url = new URL(tabs[0].url);
-  		domain = url.hostname;
+  		var domain = url.hostname;
 
 	    document.getElementById('searchsite').value = domain;
 	});
@@ -16,7 +16,17 @@ function fill_info(){
 document.addEventListener('DOMContentLoaded', fill_info);
 
 var botao = document.getElementById('btnSearch');
+
 botao.addEventListener('click', function myFunction() {
   
-	console.log("teste");
+	var searchquery = document.getElementById('searchquery').value;
+	var searchsite = document.getElementById('searchsite').value;
+	var searchsubreddit = document.getElementById('searchsubreddit').value;
+
+	//customsearch(searchquery, searchsite, searchsubreddit);
 });
+
+
+/*
+	MUST PUT contextMenus.menuOption SOMEWHERE ELSE
+*/
