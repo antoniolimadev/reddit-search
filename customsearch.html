@@ -18,14 +18,14 @@
   </style>
 </head>
 
-<body>
+<body id="bodypopup">
   <h2>Search on Reddit</h2>
-  <div id="container">
-    <input type="search" id="searchquery" name="query" placeholder="search">
+  <form>
+    <input type="search" id="searchquery" name="query" placeholder="search" autofocus>
     <input type="search" id="searchsite" name="fromsite" placeholder="example.com">  
     <input type="search" id="searchsubreddit" name="subreddit" placeholder="subreddit">
-    <button id="btnSearch">Search</button>
-  </div>
+    <input id="btnSearch" type="submit" value="Search">
+  </form>
 
   <script src="js/search.js"></script>
   <script src="js/customsearch.js"></script>
