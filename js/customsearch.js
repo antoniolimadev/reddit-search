@@ -1,5 +1,3 @@
-//var domain = "";
-
 function fill_info(){
 
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
@@ -19,14 +17,11 @@ var botao = document.getElementById('btnSearch');
 
 botao.addEventListener('click', function myFunction() {
   
-	var searchquery = document.getElementById('searchquery').value;
-	var searchsite = document.getElementById('searchsite').value;
-	var searchsubreddit = document.getElementById('searchsubreddit').value;
+	var searchTerms = {
+    	"searchquery": document.getElementById('searchquery').value,
+	    "searchsite": document.getElementById('searchsite').value,
+	    "searchsubreddit": document.getElementById('searchsubreddit').value
+    }
 
-	//customsearch(searchquery, searchsite, searchsubreddit);
+	customsearch(searchTerms);
 });
-
-
-/*
-	MUST PUT contextMenus.menuOption SOMEWHERE ELSE
-*/
