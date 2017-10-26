@@ -2,11 +2,19 @@ function fill_info(){
 
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
     
-	    //get the current url, extract the domain and put it on the 'searchsite' box
+	    //get url from current active tab	    
 	    var url = new URL(tabs[0].url);
-  		var domain = url.hostname;
+	    //convert it to a string
+	    var dec = decodeURIComponent(url);
+	    // filter for "chrome://"
+	    var filter = dec.includes("chrome://");
 
-	    document.getElementById('searchsite').value = domain;
+	    // if the url is clean
+  		if (!filter) {
+			// extract the domain and put it on the 'searchsite' box
+  			var domain = url.hostname;
+  			document.getElementById('searchsite').value = domain;
+  		}	    
 	});
 }
 document.addEventListener('DOMContentLoaded', fill_info);

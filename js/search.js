@@ -64,6 +64,7 @@ function makeQuery(terms, searchOptions, refine){
   // checks if the expression to search comes from TERMS or REFINE.SEARCHQUERY
   if (refine.searchquery) { //if it's empty
   	terms = refine.searchquery;
+    //terms = terms.replace( /^\s+|\s+$/g, "" );
   }
   var refineOptions = "";
 
