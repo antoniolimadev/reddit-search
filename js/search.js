@@ -18,12 +18,13 @@ function searchFromPage(callback, info, tab){
 }
 
 function searchMethod(searchOptions, info, tab){
+  
   var terms = info.selectionText;
 
   terms = terms.replace( /^\s+|\s+$/g, "" );
 
-  if( terms.length < 1 )
-    return false;
+  /*if( terms.length < 1 )
+    return false;*/
 
   makeQuery(terms, searchOptions);
 }
@@ -61,26 +62,26 @@ function customSearchMethod(searchOptions, searchTerms){
 
 function makeQuery(terms, searchOptions, refine){
 
-  // checks if the expression to search comes from TERMS or REFINE.SEARCHQUERY
-  if (refine.searchquery) { //if it's empty
-  	terms = refine.searchquery;
-    //terms = terms.replace( /^\s+|\s+$/g, "" );
-  }
-  var refineOptions = "";
+  var optionsQuery = "";  // options from Settings
+  var refineOptions = ""; // options from Popup
+  
+  // if the request comes from the popup (object REFINE exists)
+  if (refine) {
 
-  // adds a subreddit filter, if exists
-  if (refine.searchsubreddit) {
-  	refineOptions += "+subreddit%3A";
-  	refineOptions += refine.searchsubreddit; 
-  }
-  // adds a website filter, if exists
-  if (refine.searchsite) {
-  	refineOptions += "+site%3A";
-  	refineOptions += refine.searchsite;
-  }
+    terms = refine.searchquery;
 
-  var optionsQuery = "";
-  optionsQuery += refineOptions;
+    // adds a subreddit filter, if exists
+    if (refine.searchsubreddit) {
+      refineOptions += "+subreddit%3A";
+      refineOptions += refine.searchsubreddit; 
+    }
+    // adds a website filter, if exists
+    if (refine.searchsite) {
+      refineOptions += "+site%3A";
+      refineOptions += refine.searchsite;
+    }
+    optionsQuery += refineOptions;
+  }
 
   var nsfwOn = "&restrict_sr=&include_over_18=on";
   //sort type
@@ -88,7 +89,7 @@ function makeQuery(terms, searchOptions, refine){
   var sortByTop = "&sort=top";
   var sortByNew = "&sort=new";
   var sortByComments = "&sort=comments";
-
+  //link range
   var linksFromHour = "&t=hour";
   var linksFromDay = "&t=day";
   var linksFromWeek = "&t=week";
