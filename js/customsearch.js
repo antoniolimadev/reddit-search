@@ -28,8 +28,16 @@ botao.addEventListener('click', function funcSearch() {
 	    "searchsite": document.getElementById('searchsite').value,
 	    "searchsubreddit": document.getElementById('searchsubreddit').value
     }
-    //implemented on search.js
-	customsearch(searchTerms);
+    // if all fields are empty
+    if (!searchTerms.searchquery &&
+    	!searchTerms.searchsite &&
+    	!searchTerms.searchsubreddit) {
+	    // tell user there's no input
+	}
+	else{
+		//implemented on search.js
+		customsearch(searchTerms);
+	}
 });
 
 // user can press Esc to exit popup
