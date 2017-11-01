@@ -7,10 +7,10 @@ function fill_info(){
 	    //convert it to a string
 	    var dec = decodeURIComponent(url);
 	    // filter for "chrome://"
-	    var filter = dec.includes("chrome://");
+	    var filter = dec.startsWith("http");
 
 	    // if the url is clean
-  		if (!filter) {
+  		if (filter) {
 			// extract the domain and put it on the 'searchsite' box
   			var domain = url.hostname;
   			document.getElementById('searchsite').value = domain;
