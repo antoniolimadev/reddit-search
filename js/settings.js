@@ -5,13 +5,15 @@ function save_options() {
   var linksFrom = document.getElementById('linksFrom').value;
   var nsfw = document.getElementById('nsfw').checked;
   var sametab = document.getElementById('sametab').checked;
+  var currentUrl = document.getElementById('currentUrl').checked;
   
   chrome.storage.sync.set({
     
     sortedByOption: sortedBy,
     linksFromOption: linksFrom,
     nsfwOption: nsfw,
-    sametabOption: sametab
+    sametabOption: sametab,
+    currentUrlOption: currentUrl
   
   }, function() {
     // Update status to let user know options were saved.
@@ -38,7 +40,8 @@ function restore_options() {
     sortedByOption: 1,
     linksFromOption: 6,
     nsfwOption: false,
-    sametabOption: false
+    sametabOption: false,
+    currentUrlOption: true
 
   }, function(items) {
 
@@ -46,6 +49,7 @@ function restore_options() {
     document.getElementById('linksFrom').value = items.linksFromOption;
     document.getElementById('nsfw').checked = items.nsfwOption;
     document.getElementById('sametab').checked = items.sametabOption;
+    document.getElementById('currentUrl').checked = items.currentUrlOption;
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
