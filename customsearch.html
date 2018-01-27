@@ -3,22 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Custom Search</title>
-  <style type="text/css">
-    body {
-      margin: 10px;
-      background-color: #cee3f8;
-    }
-    h2 {
-      font-size: 15px;
-      color: #336699;
-    }
-    input {
-      margin: 3px;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="css/popup.css">
 </head>
 
-<body id="bodypopup">
+<body>
   <h2>Search on Reddit</h2>
   <form autocomplete="off">
     <input type="search" id="searchquery" name="query" placeholder="search" autofocus>
@@ -27,6 +15,10 @@
     <input id="btnSearch" type="submit" value="Search">
     <span id="nosearch"></span> <!-- add a warning later -->
   </form>
+  <div class="section-header"></div>
+  <div id="settings">
+    <a target="_blank" href="settings.html">Settings</a>
+  </div>
 
   <script src="js/search.js"></script>
   <script src="js/customsearch.js"></script>

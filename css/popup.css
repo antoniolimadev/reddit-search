@@ -1,0 +1,59 @@
+/*
+  Reddit Color Scheme
+
+  Orange-Red: #ff4500
+  Blue-Gray: #5f99cf
+  Azureish White: #cee3f8
+*/
+
+body {
+/*  margin: 10px;*/
+  background-color: #cee3f8;
+}
+h2 {
+  padding-left: 3%;
+  font-size: 15px;
+  color: #336699;
+}
+input {
+  margin: 3px;
+}
+#settings{
+  font-size: 1.2em;
+  padding-left: 3%;
+  padding-top: 4%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #336699;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #ff4500;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: left;
+  font-size: 15px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+.section-header:after {
+  background-color: #5f99cf;
+  content: '\a0';
+  flex-grow: 5;
+  height: 1px;
+  position: relative;
+  top: 0.65em;
+  margin-left: -10px;
+  margin-right: -10px;
+}
