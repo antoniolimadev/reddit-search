@@ -4,9 +4,10 @@ Reddit Search is an extension for Chrome that allows you to select any text on a
 It is [available in the official Chrome Web Store].
 
 ### Right click search
-![alt text](https://i.imgur.com/OEzXe63.png "Right click search")
+![alt text](https://i.imgur.com/jnXgsay.jpg "Right click search")
 
 ### Custom search
-![alt text](https://i.imgur.com/t751gsa.png "Right click search")
+Narrow down the results by adding a specific domain and subreddit.
+![alt text](https://i.imgur.com/t751gsa.png "Custom search")
 
 [available in the official Chrome Web Store]: https://chrome.google.com/webstore/detail/reddit-search/keogppnmckndefikgmfendegbgafodem
