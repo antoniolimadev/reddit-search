@@ -1,3 +1,4 @@
+// RIGHT CLICK SEARCH
 function searchQuery(info, tab){
     searchFromPage(searchMethod,info,tab);
 }
@@ -17,6 +18,7 @@ function searchFromPage(callback, info, tab){
   });
 }
 
+// callback function to right click search
 function searchMethod(searchOptions, info, tab){
   
   var terms = info.selectionText;
@@ -29,6 +31,7 @@ function searchMethod(searchOptions, info, tab){
   makeQuery(terms, searchOptions);
 }
 
+// CUSTOM SEARCH FROM POPUP
 function customsearch(searchTerms){
 
 	saerchFromCustom(customSearchMethod, searchTerms);
@@ -49,6 +52,7 @@ function saerchFromCustom(callback, searchTerms){
   });
 }
 
+// callback function to custom search
 function customSearchMethod(searchOptions, searchTerms){
 
   var terms = searchTerms.searchquery;
@@ -56,8 +60,42 @@ function customSearchMethod(searchOptions, searchTerms){
 
   if( terms.length < 1 )
     terms = "";
-	
+  
   makeQuery(terms, searchOptions, searchTerms);
+}
+
+// HOT KEY SEARCH
+function hotkeySearch(selectionText){
+
+  searchFromHotkey(hotkeySearchMethod, selectionText);
+}
+
+function searchFromHotkey(callback, selectionText){
+
+  chrome.storage.sync.get(null, (items) => {
+    
+    var searchOptions = {
+      "sort": items.sortedByOption,
+      "links": items.linksFromOption,
+      "nsfw": items.nsfwOption,
+      "newtab": items.sametabOption
+    }
+
+    callback(searchOptions, selectionText)
+  });
+}
+
+// callback function to hotkey search
+function hotkeySearchMethod(searchOptions, selectionText){
+  
+  var terms = selectionText;
+  terms = terms.replace( /^\s+|\s+$/g, "" );
+
+  if(terms){
+    makeQuery(terms, searchOptions);
+  }else{
+    return;
+  }
 }
 
 function makeQuery(terms, searchOptions, refine){

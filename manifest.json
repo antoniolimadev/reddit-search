@@ -19,6 +19,24 @@
   "icons": { "16": "icons/rs_lc.png",
            "48": "icons/rs_lc.png",
           "128": "icons/rs_lc.png" },
+
+"commands": {
+          "toggle-feature-foo": {
+            "suggested_key": {
+              "default": "Alt+R",
+              "mac": "Command+Shift+R"
+            },
+            "description": "Right click search"
+          },
+          "_execute_browser_action": {
+            "suggested_key": {
+              "windows": "Ctrl+Shift+Y",
+              "mac": "Command+Shift+Y",
+              "chromeos": "Ctrl+Shift+Y",
+              "linux": "Ctrl+Shift+Y"
+            }
+          }
+        },
   
   "permissions": [
     "activeTab",
