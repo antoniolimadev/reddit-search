@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Reddit Search Settings</title>
+	<title>Reddit Search</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
 
 <div id="content">
-	<div id="banner">
-		Settings - Reddit Search v1.0
+	<div class="banner">
+		Settings
 	</div>
 
 	<div id="options">
-		Sort by:
+		<div class="section-header">Search Options</div>
 		<div class="section">
+			Sort by:
 			<select id="sortedBy">
 				<option value="1" selected>relevance</option>
 				<option value="2">top</option>
@@ -23,8 +24,8 @@
 			</select>
 		</div>
 
-		Links from:
 		<div class="section">
+			Links from:
 			<select id="linksFrom">
 				<option value="6" selected>all time</option>
 				<option value="1">past hour</option>
@@ -38,7 +39,8 @@
 		<div class="section">
 			<label>
 			<input type="checkbox" id="nsfw">
-			Include NSFW
+			Include NSFW 
+			<span class="help">(Show adult content results)</span>
 			</label>
 		</div>
 
@@ -52,7 +54,7 @@
 		<div class="section">
 			<label>
 			<input type="checkbox" id="currentUrl">
-			Auto complete search with the current URL
+			Autofill domain <span class="help">(Custom search input will be prefilled with the current URL)</span>
 			</label>
 		</div>
 
@@ -60,10 +62,13 @@
 			<button id="save">Save</button>
 			<span class="section" id="status"></span>
 		</div>
-	</div>
 
+		<div class="section-header">Default keyboard shortcuts <span class="help">(To change these shortcuts go to chrome://extensions/configureCommands)</span></div>
+		<div class="section"> <span class="key">Alt</span> <b>+</b> <span class="key">R</span> : Right click search</div>
+		<div class="section"><span class="key">Ctrl</span> <b>+</b> <span class="key">Shift</span> <b>+</b> <span class="key">Y</span> : Open custom search</div>
+	</div>
 	<div id="footer">
-		developed by <a href="http://twitter.com/antoniolclima">@antoniolclima</a>
+		v1.1 developed by <a href="http://twitter.com/antoniolclima">@antoniolclima</a>
 	</div>
 </div>
 

@@ -8,30 +8,41 @@
 
 body {
 	background-color: #f9f9f9;
-	padding-top: 8%;
-    padding-right: 30%;
-    padding-left: 30%;
+	padding-top: 5%;
+	padding-left: 23%;
+    padding-right: 23%;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
-    font-size: 1em;
+    font-size: 0.88em;
+    color: 
 }
 
 .section {
-	padding: 6px;
+	padding: 7px;
+}
+
+.section-header {
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 1em;
 }
 
 #content {
 	background-color: #cee3f8;
 	border-radius: 3px;
+	height: 540px;
+	position: relative;
 }
 
-#banner{
+.banner{
 	background-color: #5f99cf;
 	text-align: left;
-	font-size: 1.6em;
 	padding: 1%;
 	padding-left: 3%;
-	margin-bottom: 5%;
+	margin-bottom: 3%;
 	border-radius: 3px;
+	font-size: 1.7em;
+	font-weight: bold;
+	color: #f9f9f9;
 }
 
 #options {
@@ -40,10 +51,9 @@ body {
 }
 
 #footer{
-	text-align: right;
-	margin-top: 10%;
-	margin-right: 1%;
-	margin-bottom: 1%;
+	position: absolute;
+	bottom: 0px;
+	right: 1%;
 	font-size: 0.75em;
 }
 
@@ -58,4 +68,28 @@ a:visited {
 a:hover {
     text-decoration: underline;
     color: #ff4500;
+}
+
+.key {
+	background-color: #5f99cf;
+	padding: 1px 10px;
+	border-radius: 0.231em;
+	color: #f9f9f9;
+}
+
+.help {
+	font-weight: normal;
+	font-size: 0.75em;
+/*	font-style: italic;*/
+}
+
+@media (max-width: 1024px) {
+	body {
+		background-color: #f9f9f9;
+		padding-top: 5%;
+		padding-left: 10%;
+	    padding-right: 10%;
+	    font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+	    font-size: 0.88em;
+	}
 }
