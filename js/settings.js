@@ -33,14 +33,14 @@ function restore_options() {
   // sortedBy = 'relevance' (1)
   // linksFrom = 'all time' (6)
   // nsfw = false
-  // sametab = false
+  // sametab = true
   
   chrome.storage.sync.get({
 
     sortedByOption: 1,
     linksFromOption: 6,
     nsfwOption: false,
-    sametabOption: false,
+    sametabOption: true,
     currentUrlOption: true
 
   }, function(items) {

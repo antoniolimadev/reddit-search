@@ -184,7 +184,13 @@ function makeQuery(terms, searchOptions, refine){
 
 function launchSearchTab(terms, optionsQuery, newtab){
 
-  chrome.tabs.create({ "url":"http://www.reddit.com/search?q=" + encodeURIComponent(terms) + optionsQuery,
-               "selected":!newtab
-  });
+  if(!newtab){ // stay on current tab
+    chrome.tabs.update({ "url":"http://www.reddit.com/search?q=" + encodeURIComponent(terms) + optionsQuery
+    });
+  }
+  else{ // open new tab with results
+    chrome.tabs.create({ "url":"http://www.reddit.com/search?q=" + encodeURIComponent(terms) + optionsQuery,
+                         "selected":true // new tab will be active
+    });
+  }
 }
